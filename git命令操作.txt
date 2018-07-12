@@ -1,0 +1,88 @@
+git命令操作
+
+一、通过git模拟单人开发
+步骤：
+1、在电脑的任意盘符下创建一个目录 d:/gitdemo/tangseng
+2、初始化git的仓库：进入tangseng目录中，执行：git init(产生一个.git文件夹)
+3、在tangseng目录下创建一个test.java文件
+4、查看文件状态：git status test.java(指定查看具体某个文件的状态)  git status （查看所有的文件状态）
+   4-1、文件颜色为红色：代表该文件未被git管理
+   4-1、文件颜色为绿色：代表该文件被git管理
+5、将文件添加到暂存区：git add test.java(将具体的文件添加到暂存区)  git add .(将所有的文件提交到暂存区)
+6、将文件提交到本地版本库中：git commit 
+   6-1：指定提交的文件的说明信息 ：git commit -m "注释内容"
+7、查看文件git操作的日志信息：git log
+
+二、git设置账号信息
+1、设置局部信息
+   git config user.name "yourname"
+   git config user.email "yourname@example.com"
+2、设置全局信息
+   git config --global user.name "yourname"
+   git config --global user.email "yourname@example.com"
+
+三、别名的设置
+    格式：git config --global alias.简写 "具体命令 -选项"  例如：git config --global alias.ci "commit -m"
+    展示的日志信息：git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+    1、显示的样式
+    2、对文件的版本进行撤销以及回退
+
+四、版本回退与撤销
+    1、版本回退（commit后代码）
+       git reset --hard HEAD^/^^：表示回退到上一个班/上上一个版本
+       git reset --hard 前7位hash值：回退到具体的某个版本
+    2、文件内容撤销（add后代码）
+       git reset --hard HEAD
+    3、git reflog：查看所有的git操作
+
+五、模拟多人开发以及冲突解决
+    角色分配：项目经理、两个程序员（tangseng、wukong）
+    
+    项目经理：
+	1、在电脑的任意盘符下创建一个service目录
+        2、在service同级目录下创建tangseng、wukong
+	3、进入service目录下，初始化仓库：git init --bare
+
+    程序员tangseng
+	1、检出代码：git clone url
+	2、创建一个忽略文件（.git同级目录  d:/gitdemo/tangseng/service/.gitignore）：设置需要忽略的内容
+	3、将忽略文件提交到远程仓库：
+	   git add .
+	   git commit -m
+	   git push
+	4、编写main.java文件，并且提交到远程仓库
+
+    程序员wukong
+	1、检出代码
+	2、编写代码
+	3、提交远程仓库
+
+    冲突：
+	1、tangseng更新代码：git pull
+	2、tangseng开发代码，提交到远程版本库
+	3、wukong忘记更新了代码，就直接开发
+	4、wukong提交到本地版本库
+	5、这时，wukong焕然大悟，发现自己没有更新，再去更新，这时就会出现冲突
+	6、wukong解决冲突,最后将代码push到远程仓库
+
+六、git分支
+    1、创建分支：git branch bugfix
+    2、切换分支：git checkout bugfix
+    3、合并分支：git meger bugfix(将创建分支合并到主分支)
+       可能出现冲突（手动解决）
+    4、删除分支：git branch -d bugfix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
