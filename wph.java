@@ -6,6 +6,8 @@ win7{
 	system.out.println("win7上面进行保存！！！");
 }win777{
 	system.out.println("win7777上面进行保存！！！");
-}win10{
+
+}
+win10{
 	system.out.println("win10上面进行保存！！！");
 }
