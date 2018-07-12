@@ -81,7 +81,16 @@ https://blog.csdn.net/sinat_33366020/article/details/73732769
 
 
 
+在本地新建分支并推送到远程
 
+git checkout -b test
+
+git push origin test   这样远程仓库中也就创建了一个test分支
+
+
+
+分支操作：
+https://www.cnblogs.com/lianghe01/p/5806518.html
 
 
 
