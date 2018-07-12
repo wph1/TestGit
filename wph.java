@@ -17,3 +17,7 @@ win777{
 	system.out.println("win7777上面进行保存！！！");
 
 }
+win8888{
+	system.out.println("win8888上面进行保存！！！");
+
+}
